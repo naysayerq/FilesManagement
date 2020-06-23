@@ -44,10 +44,12 @@ public class Main {
                 .get("C:/Users/Intel/Downloads/logs.txt")));
 
 
+
 	    // 2. Calculate the total number of logs (lines).
 
 	    String[] lines = myString.split("\n");
         System.out.println("Total number of logs (lines): " + lines.length);
+
 
 
         // 3. Calculate the total number of ERROR logs. Use previous skills - String.split
@@ -66,6 +68,7 @@ public class Main {
         LocalDateTime finishStringSplitTime = LocalDateTime.now();
 
 
+
         // 4. Calculate the total number of ERROR logs. Use Files.lines.
 
         LocalDateTime startFilesLinesTime = LocalDateTime.now();
@@ -77,16 +80,31 @@ public class Main {
         LocalDateTime finishFilesLinesTime = LocalDateTime.now();
 
         System.out.println("Total number of ERROR logs (second method): "
-                + errors);
+                + errors + "\n");
+
 
 
         // 5. Compare two results.
 
-        System.out.println("-----COMPARING-----");
+        System.out.println("----- COMPARING -----\n");
         System.out.println("String.split result is: " + ChronoUnit.MILLIS.between
                 (startStringSplitTime, finishStringSplitTime) + " milliseconds");
         System.out.println("Files.lines result is: " + ChronoUnit.MILLIS.between
                 (startFilesLinesTime, finishFilesLinesTime) + " milliseconds");
+
+
+        /*                              OUTCOME
+        *
+        *           Total number of logs (lines): 2845607
+        *           Total number of ERROR logs (first method): 361
+        *           Total number of ERROR logs (second method): 361
+        *
+        *                         ----- COMPARING -----
+        *
+        *           String.split result is: 3304 milliseconds
+        *           Files.lines result is: 1269 milliseconds
+        *
+         */
 
 
     }
